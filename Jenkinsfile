@@ -1,14 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:7.4'
-            args '-p 3000:3000'
-        }
-    }
+    agent any
+
     environment {
         CI = 'true'
     }
     stages {
+        stage('Check SCM') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
                 echo "Empezando el install..."
