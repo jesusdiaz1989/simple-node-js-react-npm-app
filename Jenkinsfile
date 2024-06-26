@@ -19,7 +19,7 @@ pipeline {
             steps {
                 // Run the Docker container exposing port 3000
                 script {
-                    def image = docker.image("my-node-app:${env.BUILD_ID}")
+                    def image = docker.image("simple-node-js-react-npm-app:${env.BUILD_ID}")
                     image.run('-p 3000:3000')
                 }
             }
