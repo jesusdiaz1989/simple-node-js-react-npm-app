@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    environment {
-        PATH = "/path/to/nodejs/bin:$PATH"
+    tools {
+        nodejs "NodeJS_14" // El nombre que le diste a la instalación de NodeJS
     }
     stages {
         stage('Check SCM') {
@@ -9,7 +9,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Version') {
+        stage('Build') {
             steps {
                 echo "Empezando el install..."
                 sh "npm install"
