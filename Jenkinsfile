@@ -9,5 +9,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Version') {
+            steps {
+                echo "Empezando el install..."
+                npm -v
+            }
+        }
     }
 }
