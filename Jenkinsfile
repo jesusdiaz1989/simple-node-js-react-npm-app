@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        CI = 'true'
+        PATH = "/path/to/nodejs/bin:$PATH"
     }
     stages {
         stage('Check SCM') {
