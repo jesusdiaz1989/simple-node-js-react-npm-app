@@ -13,6 +13,10 @@ pipeline {
             steps {
                 echo "Empezando el install..."
                 sh "npm install"
+
+                script {
+                    def image = docker.build("my-node-app:${env.BUILD_ID}")
+                }
             }
         }
         stage('Run') {
