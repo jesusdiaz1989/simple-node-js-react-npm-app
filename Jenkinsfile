@@ -4,18 +4,13 @@ pipeline {
         nodejs "NodeJS_14" // El nombre que le diste a la instalación de NodeJS
     }
     stages {
-        stage('Check SCM') {
-            steps {
-                checkout scm
-            }
-        }
         stage('Build') {
             steps {
                 echo "Empezando el install..."
                 sh "npm install"
 
                 script {
-                    def image = docker.build("my-node-app:${env.BUILD_ID}")
+                    def image = docker.build("simple-node-js-react-npm-app:${env.BUILD_ID}")
                 }
             }
         }
