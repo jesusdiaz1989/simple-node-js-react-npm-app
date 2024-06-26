@@ -1,9 +1,13 @@
 FROM node:12-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
+
+COPY package.json ./
 
 ADD package.json package-lock.json /app/
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
