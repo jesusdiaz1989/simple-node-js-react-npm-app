@@ -12,11 +12,5 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
-            steps {
-                echo "Empezando el install..."
-                sh 'npm install'
-            }
-        }
     }
 }
