@@ -12,9 +12,7 @@ pipeline {
         stage('Version') {
             steps {
                 echo "Empezando el install..."
-                nodejs(nodeJSInstallationName: 'UI') {
-                   sh "npm install && npm install --only=dev && npm run build --${params.buildenv}"
-                }
+                sh "npm install"
             }
         }
     }
