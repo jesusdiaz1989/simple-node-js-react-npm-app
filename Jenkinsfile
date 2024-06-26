@@ -12,7 +12,7 @@ pipeline {
         stage('Version') {
             steps {
                 echo "Empezando el install..."
-                npm -v
+                apt install npm
             }
         }
     }
