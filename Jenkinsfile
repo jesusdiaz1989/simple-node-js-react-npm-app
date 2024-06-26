@@ -15,5 +15,14 @@ pipeline {
                 sh "npm install"
             }
         }
+        stage('Run') {
+            steps {
+                // Run the Docker container exposing port 3000
+                script {
+                    def image = docker.image("my-node-app:${env.BUILD_ID}")
+                    image.run('-p 3000:3000')
+                }
+            }
+        }
     }
 }
